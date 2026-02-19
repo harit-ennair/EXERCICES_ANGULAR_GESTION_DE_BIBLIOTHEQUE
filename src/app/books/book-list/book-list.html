@@ -1,0 +1,47 @@
+<input [(ngModel)]="search" />
+<p>{{" kat9alb 3la " + "' " + search() + " '"}}</p>
+<p>{{" 3adad lhorof howa : " + search().length}}</p>
+
+<p>=====================================================</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Available</th>
+      <th>action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @for (item of booksFind(); track $index) {
+      <tr>
+        <td>{{ item.title }}</td>
+        <td>{{ item.available }}</td>
+        <td><button (click)="changeAvailablty(item)"> chainge </button></td>
+      </tr>
+    }
+  </tbody>
+</table>
+
+  <p>=====================================================</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>title</th>
+        <th>available</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+
+      @for (book of books$ | async; track $index) {
+              <tr>
+        <td>{{ book.title }}</td>
+        <td>{{ book.available }}</td>
+      </tr>
+      }
+      
+    </tbody>
+  </table>
